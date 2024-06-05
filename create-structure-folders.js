@@ -44,7 +44,9 @@ function createStructure(basePath, struct) {
       }
       struct[key].forEach(file => {
         const filePath = path.join(currentPath, file);
-        fs.writeFileSync(filePath, '');
+        if (!fs.existsSync(filePath)) {
+          fs.writeFileSync(filePath, '');
+        }
       });
     } else {
       if (!fs.existsSync(currentPath)) {
