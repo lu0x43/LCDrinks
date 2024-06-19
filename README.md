@@ -1,79 +1,110 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Documentação do Projeto
 
-# Getting Started
+Este documento descreve a estrutura do projeto e a organização dos arquivos para facilitar o entendimento e a manutenção do código.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Estrutura do Projeto
 
-## Step 1: Start the Metro Server
+Abaixo está a estrutura do projeto, com a descrição de cada diretório e sua finalidade.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Descrição dos Diretórios e Arquivos
 
-```bash
-# using npm
-npm start
+### Raiz do Projeto
 
-# OR using Yarn
-yarn start
-```
+- **`App.tsx`**: Arquivo principal do aplicativo que configura e inicia a aplicação. Geralmente, ele contém o provedor de navegação e as configurações globais.
 
-## Step 2: Start your Application
+### `src/`
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+- **`api/`**
+  - **`apiConfig.ts`**: Configuração das chamadas de API, como URLs base, interceptores e headers.
+  - **`index.ts`**: Exporta as funcionalidades de API para uso em outras partes da aplicação.
 
-### For Android
+- **`assets/`**
+  - **`brand/`**: Contém imagens e recursos de branding.
+  - **`fonts/`**: Armazena as fontes usadas na aplicação.
+  - **`icons/`**: Armazena os ícones.
 
-```bash
-# using npm
-npm run android
+- **`components/`**
+  - **`DrinkCard/`**
+    - **`DrinkCard.tsx`**: Componente para exibir informações resumidas de um drink.
+    - **`DrinkCardStyles.ts`**: Estilos específicos para o `DrinkCard`.
+  - **`Filter/`**
+    - **`Filter.tsx`**: Componente de filtro para buscar drinks por categoria, ingrediente, etc.
+    - **`FilterStyles.ts`**: Estilos específicos para o `Filter`.
+  - **`Loading/`**
+    - **`Loading.tsx`**: Componente para exibir um indicador de carregamento.
+    - **`LoadingStyles.ts`**: Estilos específicos para o `Loading`.
+  - **`index.ts`**: Exporta todos os componentes do diretório para facilitar a importação.
 
-# OR using Yarn
-yarn android
-```
+- **`domain/`**
+  - **`Auth/`**
+    - **`adapter.ts`**: Adaptações ou transformações de dados relacionados à autenticação.
+    - **`api.ts`**: Funções para chamadas de API relacionadas à autenticação.
+    - **`service.ts`**: Serviços de autenticação, como login e registro de usuários.
+    - **`types.ts`**: Definições de tipos e interfaces para a autenticação.
+  - **`index.ts`**: Exporta as funcionalidades ou constantes relacionadas ao domínio.
 
-### For iOS
+- **`hooks/`**
+  - **`Drinks/`**
+    - **`useDrinks.ts`**: Hook personalizado para gerenciar a lógica dos drinks, incluindo operações de CRUD.
+  - **`index.ts`**: Exporta todos os hooks do diretório para facilitar a importação.
 
-```bash
-# using npm
-npm run ios
+- **`infra/`**
+  - **`hooks/`**: Diretório para hooks relacionados à infraestrutura (ainda não utilizados).
+  - **`index.ts`**: Exporta as funcionalidades de infraestrutura.
+  - **`types/`**
+    - **`types.ts`**: Definições de tipos utilizados na infraestrutura.
 
-# OR using Yarn
-yarn ios
-```
+- **`routes/`**
+  - **`index.ts`**: Configuração da navegação entre as telas da aplicação.
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+- **`screens/`**
+  - **`DrinkDetail/`**
+    - **`DrinkDetailScreen.tsx`**: Tela para visualizar detalhes e editar um drink.
+    - **`DrinkDetailStyles.ts`**: Estilos específicos para a tela de detalhes do drink.
+  - **`Home/`**
+    - **`HomeScreen.tsx`**: Tela inicial da aplicação.
+    - **`HomeStyles.ts`**: Estilos específicos para a tela inicial.
+  - **`Menu/`**
+    - **`MenuScreen.tsx`**: Tela de listagem e filtro de drinks.
+    - **`MenuStyles.ts`**: Estilos específicos para a tela de listagem.
+  - **`RegisterDrink/`**
+    - **`RegisterDrinkScreen.tsx`**: Tela para adicionar um novo drink.
+    - **`RegisterDrinkStyles.ts`**: Estilos específicos para a tela de registro de drinks.
+  - **`StockControl/`**
+    - **`StockControlScreen.tsx`**: Tela para controle de estoque de ingredientes.
+    - **`StockControlStyles.ts`**: Estilos específicos para a tela de controle de estoque.
+  - **`index.ts`**: Exporta todas as telas do diretório para facilitar a importação.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+- **`services/`**
+  - **`Drink/`**
+    - **`DrinkService.ts`**: Serviço para operações CRUD relacionadas a drinks no banco de dados.
+  - **`index.ts`**: Exporta todos os serviços do diretório para facilitar a importação.
 
-## Step 3: Modifying your App
+- **`test/`**
+  - **`index.ts`**: Ponto de entrada para configuração ou inicialização de testes.
+  - **`jestSetup/`**
+    - **`jestSetup.ts`**: Configurações específicas para o Jest.
+  - **`server/`**
+    - **`handlers.ts`**: Handlers de servidor (provavelmente mocks ou stubs para testes).
+    - **`server.ts`**: Configuração do servidor de teste.
+  - **`testUtils/`**
+    - **`test-utils.tsx`**: Utilitários para facilitar a escrita de testes.
 
-Now that you have successfully run the app, let's modify it.
+- **`theme/`**
+  - **`theme.ts`**: Definições de tema e estilos globais usados na aplicação.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+- **`types/`**
+  - **`index.ts`**: Definições de tipos globais utilizados em toda a aplicação.
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+- **`utils/`**
+  - **`index.ts`**: Funções utilitárias e helpers gerais.
 
-## Congratulations! :tada:
+## Como Contribuir
 
-You've successfully run and modified your React Native App. :partying_face:
+Para contribuir com este projeto, siga as etapas abaixo:
 
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+1. Faça um fork do repositório.
+2. Crie um branch para sua feature (`git checkout -b feature/nova-feature`).
+3. Commit suas alterações (`git commit -am 'Adiciona nova feature'`).
+4. Faça o pull request se necessário
