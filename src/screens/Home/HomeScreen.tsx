@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-function HomePage(): React.JSX.Element {
+function HomeScreen(): React.JSX.Element {
   return (
     <>
       <View>
@@ -11,4 +11,4 @@ function HomePage(): React.JSX.Element {
   );
 }
 
-export default HomePage;
+export default HomeScreen;
