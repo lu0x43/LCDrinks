@@ -40,7 +40,7 @@ function createStructure(basePath, struct) {
     const currentPath = path.join(basePath, key);
     if (Array.isArray(struct[key])) {
       if (!fs.existsSync(currentPath)) {
-        fs.mkdirSync(currentPath, {recursive: true});
+        fs.mkdirSync(currentPath, { recursive: true });
       }
       struct[key].forEach(file => {
         const filePath = path.join(currentPath, file);
@@ -50,7 +50,7 @@ function createStructure(basePath, struct) {
       });
     } else {
       if (!fs.existsSync(currentPath)) {
-        fs.mkdirSync(currentPath, {recursive: true});
+        fs.mkdirSync(currentPath, { recursive: true });
       }
       createStructure(currentPath, struct[key]);
     }

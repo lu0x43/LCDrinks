@@ -72,3 +72,7 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+capture-structure.js
+create-structure-folders.js
+project-structure.txt
