@@ -4,8 +4,8 @@ import { View, Text } from 'react-native';
 function HomeScreen(): React.JSX.Element {
   return (
     <>
-      <View>
-        <Text>Texto da Home</Text>
+      <View style={{ flex: 1 }}>
+        <Text style={{ fontSize: 18 }}>Texto da Home</Text>
       </View>
     </>
   );
