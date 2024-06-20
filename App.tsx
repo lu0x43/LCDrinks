@@ -1,12 +1,27 @@
 import React from 'react';
-import { SafeAreaView, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native';
+
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+
+import { HomeScreen } from './src/screens';
+
+const Tab = createBottomTabNavigator();
+
+function MyTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} />
+    </Tab.Navigator>
+  );
+}
 
 function App(): React.JSX.Element {
   return (
     <SafeAreaView>
-      <View>
-        <Text>Eai</Text>
-      </View>
+      <NavigationContainer>
+        <MyTabs />
+      </NavigationContainer>
     </SafeAreaView>
   );
 }
