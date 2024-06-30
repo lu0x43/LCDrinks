@@ -1,3 +1,5 @@
-import HomeScreen from './Home/HomeScreen';
+import MenuScreen from './Menu/MenuScreen';
+import RegisterDrinkScreen from './RegisterDrink/RegisterDrinkScreen';
+import StockControlScreen from './StockControl/StockControlScreen';
 
-export { HomeScreen };
+export { MenuScreen, RegisterDrinkScreen, StockControlScreen };
