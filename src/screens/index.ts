@@ -1,5 +1,3 @@
-import MenuScreen from './Menu/MenuScreen';
-import RegisterDrinkScreen from './RegisterDrink/RegisterDrinkScreen';
-import StockControlScreen from './StockControl/StockControlScreen';
-
-export { MenuScreen, RegisterDrinkScreen, StockControlScreen };
+export * from './Menu/MenuScreen';
+export * from './RegisterDrink/RegisterDrinkScreen';
+export * from './StockControl/StockControlScreen';
